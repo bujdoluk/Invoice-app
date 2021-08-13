@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;800&display=swap');
+/* Buttons */
+.btn-1 {
+    background: #7c5dfa;
+    color: white;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-1:hover {
+    background: #9277ff;
+    color: white;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-2-light {
+    background: #f8f8fb;
+    color: rgb(136,142,176);
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-2-light:hover {
+    background: #dfe3fa;
+    color: rgb(136,142,176);
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-2-dark {
+    background: #1e2139;
+    color: #dfe3fa;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-2-dark:hover {
+    background: #f8f8fb;
+    color: #dfe3fa;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-3-dark {
+    background: #252945;
+    color: rgb(136,142,176);
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-3-dark:hover {
+    background: #252945;
+    color: #f8f8fb;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-4-dark {
+    background: #0c0e16;
+    color: rgb(136,142,176);
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-4-dark:hover {
+    background: #0c0e16;
+    color: #f8f8fb;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-5-red {
+    background: #ec5757;
+    color: #f8f8fb;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
+.btn-5-red:hover {
+    background: #f37b7b;
+    color: #f8f8fb;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
+
