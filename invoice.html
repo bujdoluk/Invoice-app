@@ -8,107 +8,216 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/invoice.css">
   <title>Frontend Mentor | Invoice app</title>
 </head>
 
 <body>
-  Go back
+  <section class="main-view">
+    <section class="sidepanel">
+      <div>
+        <img class="logo" src="/assets/image-avatar.jpg" alt="logo">
+      </div>
 
-  Status
-  <!-- Add status -->
+      <div class="bottom-panel">
+        <div class="moon">
+          <img class="moon-img" src="/assets/icon-moon.svg" alt="Moon">
+        </div>
+        <div class="line">&nbsp;</div>
+        <div class="avatar">
+          <img class="avatar-img" src="/assets/image-avatar.jpg" alt="Avatar">
+        </div>
+      </div>
+    </section>
 
-  Edit
-  Delete
-  Mark as Paid
+    <section class="invoices">
 
-  #
-  <!-- Add id -->
-  <!-- Add description -->
+      <div class="back">
+        <a href="/index.html" class="back-link">
+          <img src="/assets/icon-arrow-left.svg" class="back-img" alt="arrow-left">
+          <p class="back-paragraph">Go back</p>
+        </a>
+      </div>
 
-  <!-- Add senderAdress -->
+      <div class="status">
+        <div class="status-value">
+          <p class="grey">Status</p>
+          <p class="status-value-update"><span class="status-dot">&#11044;</span> Pending</p>
+        </div>
 
-  Invoice Date
-  <!-- Add createdAt -->
+        <div class="status-buttons">
+          <button class="btn-2-light" onclick="document.getElementById('edit').style.display='block'">Edit</button>
+          <button class="btn-5-red" onclick="document.getElementById('delete').style.display='block'">Delete</button>
+          <button class="btn-1">Mark as Paid</button>
+        </div>
+      </div>
 
-  Payment Due
-  <!-- Add paymentDue -->
+      <section class="details">
+        <div class="details-id">
+          <div>
+            <p class="id"><span class="grey">#</span>XM9141</p>
+            <p class="grey">Graphic Design</p>
+          </div>
 
-  Bill To
-  <!-- Add clientName -->
-  <!-- Add clientAdress -->
+          <div class="details-address">
+            <p>19 Union Terrace</p>
+            <p>London</p>
+            <p>E1 3EZ</p>
+            <p>United Kingdom</p>
+          </div>
+        </div>
 
-  Sent To
-  <!-- Add clientEmail -->
+        <div class="invoice-details">
+          <div class="invoice-details-dates">
+            <div>
+              <p class="grey">Invoice Date</p>
+              <p class="bold">21 Aug 2021</p>
+            </div>
+            <div>
+              <p class="grey">Payment Date</p>
+              <p class="bold">20 Sep 2021</p>
+            </div>
+          </div>
 
-  Item Name
-  QTY.
-  Price
-  Total
+          <div>
+            <p class="grey">Bill to</p>
+            <p class="bold">Alex Grim</p>
+            <p class="grey">94 Church Way</p>
+            <p class="grey">Bradfor</p>
+            <p class="grey">BDI 9PB</p>
+            <p class="grey">United Kingdom</p>
+          </div>
 
-  <!-- Add item.name -->
-  <!-- Add item.quanity -->
-  <!-- Add item.price -->
-  <!-- Add item.total -->
+          <div>
+            <p class="grey">Sent to</p>
+            <p class="bold">alexgrim@gmail.com</p>
+          </div>
+        </div>
 
-  Amount Due
-  £
-  <!-- Add total -->
+        <table class="invoice-table">
+          <tr class="invoice-table-heading">
+            <th class="grey">Item Name</th>
+            <th class="grey">QTY.</th>
+            <th class="grey">Price</th>
+            <th class="grey">Total</th>
+          </tr>
+          <tr class="unit">
+            <td class="bold">Banner Desing</td>
+            <td>1</td>
+            <td>&#163; 156.00</td>
+            <td>&#163; 156.00</td>
+          </tr>
+        </table>
+        <div class="amount">
+          <p>Amount Due</p>
+          <p class="amount-number">&#163; 556.00</p>
+        </div>
+      </section>
+    </section>
 
-  <!-- Edit invoice form -->
-  Go back
+    <!-- Modal Delete -->
+    <div id="delete" class="modal-delete">
+      <div class="modal-container">
+        <div class="modal-content">
+          <p class="bold confirm">Confirm Deletion</p>
+          <p class="grey delete-paragraph">Are you sure you want to delete invoice #54ds54? This action cannot be
+            undone.</p>
+          <div class="modal-buttons">
+            <button onclick="document.getElementById('delete').style.display='none'"
+              class="btn-2-light btn-cancel">Cancel</button>
+            <button class="btn-5-red">Delete</button>
+          </div>
 
-  Edit #
-  <!-- Add id -->
+        </div>
+      </div>
+    </div>
+    <!-- Model Delete End -->
 
-  Bill From
+    <!-- Modal Edit -->
+    <div id="edit" class="modal-edit">
+      <div class="modal-container-edit">
+        <div class="modal-content-edit">
+          <h1>Edit <span class="grey">#</span>XM9141</h1>
+          <div class="billfrom">
 
-  Street Address
-  City
-  Post Code
-  Country
+            <p class="purple">Bill Form</p>
+            <div class="billfrom-address">
+              <label for="address" class="grey">Street Address</label>
+              <input type="text" placeholder="19 Union Terrace" required>
+            </div>
 
-  Bill To
+            <div class="billfrom-city">
+              <div class="billfrom-city-column">
+                <label for="city" class="grey">City</label>
+                <input type="text" placeholder="London">
+              </div>
+              <div class="billfrom-city-column">
+                <label for="postcode" class="grey">Post Code</label>
+                <input type="text" placeholder="E1 3EZ">
+              </div>
+              <div class="billfrom-city-column">
+                <label for="country" class="grey">Country</label>
+                <input type="text" placeholder="United Kingdom">
+              </div>
+            </div>
+          </div>
 
-  Client's Name
-  Client's Email
-  Street Address
-  City
-  Post Code
-  Country
+          <div class="billto">
+            <p class="purple">Bill To</p>
 
-  Invoice Date
+            <div class="billto-name">
+              <label for="name" class="grey">Client's Name</label>
+              <input type="name" placeholder="Alex Grim" required>
 
-  Payment Terms
-  Net 1 day
-  Net 7 days
-  Net 14 days
-  Net 30 days
+              <label for="email" class="grey">Client's Email</label>
+              <input type="email" placeholder="alexgrim@gmail.com" required>
 
-  Project Description
+              <label for="street" class="grey">Street Address</label>
+              <input type="text" placeholder="94 Church Way" required>
+            </div>
 
-  Item List
+            <div class="billto-city">
+              <div class="billto-city-column">
+                <label for="city" class="grey">City</label>
+                <input type="text" placeholder="Bradford" required>
+              </div>
+              <div class="billto-city-column">
+                <label for="postcode" class="grey">Post Code</label>
+                <input type="text" placeholder="DB1 9PB" required>
+              </div>
+              <div class="billto-city-column">
+                <label for="country" class="grey">Country</label>
+                <input type="text" placeholder="United Kingdom" required>
+              </div>
+            </div>
 
-  Item Name
-  Qty.
-  Price
-  Total
+            <div>
+              <div>
+                <label for="date" class="grey">Invoice Date</label>
+                <input type="date" value="2017-06-01" placeholder="20 Aug 2012" required>
+              </div>
+              <div>
+                <label for="date" class="grey">Payment Terms</label>
+                <select name="date" id="date">
+                  <option value="1">Net 1 day</option>
+                  <option value="7">Net 7 days</option>
+                  <option value="14">Net 14 days</option>
+                  <option value="30">Net 30 days</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-  Add New Item
-
-  Cancel
-  Save Changes
-  <!-- Edit invoice end -->
-
-  <!-- Delete Modal -->
-  Confirm Deletion
-  Are you sure you want to delete invoice #
-  <!-- Add id -->?
-  This action cannot be undone.
-
-  Cancel
-  Delete
-  <!-- Delete Modal end -->
+          <div class="modal-edit-buttons">
+            <button class="btn-2-light" onclick="document.getElementById('edit').style.display='none'">Cancel</button>
+            <button class="btn-1">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Edit End -->
+  </section>
 </body>
 
 </html>

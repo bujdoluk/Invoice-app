@@ -1,10 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;800&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Spartan', 'sans-serif';
+}
+
+/* Headers */
+h1 {
+    font-size: 3rem;
+}
+
 /* Buttons */
 .btn-1 {
     background: #7c5dfa;
     color: white;
     font-family: 'Spartan', sans-serif;
     font-weight: 500;
+    font-size: 1.5rem;
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+    cursor: pointer;
 }
 
 .btn-1:hover {
@@ -19,6 +47,12 @@
     color: rgb(136,142,176);
     font-family: 'Spartan', sans-serif;
     font-weight: 500;
+    font-size: 1.5rem;
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    z-index: 35;
 }
 
 .btn-2-light:hover {
@@ -75,6 +109,12 @@
     color: #f8f8fb;
     font-family: 'Spartan', sans-serif;
     font-weight: 500;
+    font-size: 1.5rem;
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .btn-5-red:hover {

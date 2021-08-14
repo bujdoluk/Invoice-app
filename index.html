@@ -8,26 +8,62 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/index.css">
   <title>Frontend Mentor | Invoice app</title>
 </head>
 
 <body>
-  Invoices
-  There are
-  <!-- Add number here --> total invoices
+  <section class="main-view">
+    <section class="sidepanel">
+      <div>
+        <img class="logo" src="/assets/image-avatar.jpg" alt="logo">
+      </div>
 
-  Filter by status
-  Draft
-  Pending
-  Paid
+      <div class="bottom-panel">
+        <div class="moon">
+          <img class="moon-img" src="/assets/icon-moon.svg" alt="Moon">
+        </div>
+        <div class="line">&nbsp;</div>
+        <div class="avatar">
+          <img class="avatar-img" src="/assets/image-avatar.jpg" alt="Avatar">
+        </div>
+      </div>
+    </section>
 
-  New Invoice
+    <section class="invoices">
+      <div class="invoices-navbar">
 
-  <!-- No invoices -->
-  There is nothing here
-  Create an invoice by clicking the New Invoice button and get started
-  <!-- No invoices end -->
+        <div class="invoices-navbar-left">
+          <h1 class="invoices-header">Invoices</h1>
+          <p>No invoices</p>
+        </div>
+
+        <div class="invoices-navbar-right">
+          <label for="invoices">Filter by status</label>
+          <select name="invoices" id="invoices">
+            <option>Draft</option>
+            <option>Pending</option>
+            <option>Paid</option>
+          </select>
+          <button class="btn-new-invoice">
+            <div class="btn-new-invoice-white">
+              <img class="new-invoice-img" src="/assets/icon-plus.svg" alt="Plus">
+            </div>
+
+            <p>New Invoice</p>
+          </button>
+        </div>
+
+      </div>
+      <div>
+        <img class="empty-img" src="/assets/illustration-empty.svg" alt="Empty">
+        <p class="empty">There is nothing here</p>
+        <p>Create an invoice by clicking the<br><span class="bold">New Invoice</span> button and get started</p>
+      </div>
+    </section>
+  </section>
+
 
   <!-- Create new invoice form -->
   Go back
