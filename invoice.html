@@ -43,13 +43,16 @@
       <div class="status">
         <div class="status-value">
           <p class="grey">Status</p>
-          <p class="status-value-update"><span class="status-dot">&#11044;</span> Pending</p>
+          <p id="pending" class="status-value-update"><span class="status-dot">&#11044;</span> Pending</p>
+          <p id="paid" class="status-value-update-paid">
+            <span class="status-dot-paid">&#11044;</span> Paid
+          </p>
         </div>
 
         <div class="status-buttons">
           <button class="btn-2-light" onclick="document.getElementById('edit').style.display='block'">Edit</button>
           <button class="btn-5-red" onclick="document.getElementById('delete').style.display='block'">Delete</button>
-          <button class="btn-1">Mark as Paid</button>
+          <button class="btn-1" onclick="paid()">Mark as Paid</button>
         </div>
       </div>
 
@@ -192,12 +195,12 @@
               </div>
             </div>
 
-            <div>
-              <div>
+            <div class="invoice-date">
+              <div class="invoice-date-label">
                 <label for="date" class="grey">Invoice Date</label>
                 <input type="date" value="2017-06-01" placeholder="20 Aug 2012" required>
               </div>
-              <div>
+              <div class="invoice-date-payment">
                 <label for="date" class="grey">Payment Terms</label>
                 <select name="date" id="date">
                   <option value="1">Net 1 day</option>
@@ -207,17 +210,61 @@
                 </select>
               </div>
             </div>
+
+            <div class="billto-project">
+              <label for="project" class="grey">Project Description</label>
+              <input type="text" placeholder="Graphic Design" required>
+              <p class="grey list-name">Item List</p>
+            </div>
           </div>
 
-          <div class="modal-edit-buttons">
-            <button class="btn-2-light" onclick="document.getElementById('edit').style.display='none'">Cancel</button>
-            <button class="btn-1">Save Changes</button>
+          <div class="item-list">
+            <div class="item-list-name">
+              <label for="item" class="grey">Item Name</label>
+              <input type="text" placeholder="Banner Design" required>
+              <input type="text" placeholder="Email Design" required>
+            </div>
+
+            <div class="item-list-name">
+              <label for="qty" class="grey">Qty.</label>
+              <input type="number" class="number" placeholder="1" required width="4rem">
+              <input type="number" class="number" placeholder="2" required>
+            </div>
+
+            <div class="item-list-name">
+              <label for="price" class="grey">Price</label>
+              <input type="number" class="price" placeholder="156.00" required>
+              <input type="number" class="price" placeholder="200.00" required>
+            </div>
+
+            <div class="item-list-name">
+              <label for="total" class="grey item-total">Total</label>
+              <p class="grey item-total">156.00</p>
+              <p class="grey item-total-second">200.00</p>
+            </div>
+
+            <div class="item-list-name">
+              <div class="item-total">&nbsp;</div>
+              <img class="item-total" src="/assets/icon-delete.svg" alt="Delete">
+              <img class="item-total item-total-second" src="/assets/icon-delete.svg" alt="Delete">
+            </div>
           </div>
+
+          <div>
+            <button class="btn-2-light add-item">+ Add New Item</button>
+          </div>
+
+        </div>
+        <div class="modal-edit-buttons">
+          <button class="btn-2-light" onclick="document.getElementById('edit').style.display='none'">Cancel</button>
+          <button class="btn-1">Save Changes</button>
         </div>
       </div>
     </div>
     <!-- Modal Edit End -->
   </section>
+
+  <script src="/js/toggleModals.js"></script>
 </body>
 
 </html>

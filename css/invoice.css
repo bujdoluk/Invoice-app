@@ -124,7 +124,17 @@
     border-radius: 0.4rem;
  }
 
+ .status-value-update-paid {
+    display: none;
+    background: rgb(230, 255, 238);
+    padding: 1rem;
+    color: rgb(50, 201, 100); 
+    border-radius: 0.4rem;
+ }
+
  .status-dot { color: rgb(255, 159, 57); }
+
+ .status-dot-paid { color: rgb(50, 201, 100); }
 
  .details {
     background: white;
@@ -260,7 +270,7 @@
     margin-right: 2rem;
 }
 
-/* Modal Delete */
+/* Modal Edit */
 .modal-edit {
     display: none;
 }
@@ -274,10 +284,11 @@
     position: absolute;
     top: 0;
     left: 0;
+   
 }
 
 .modal-content-edit {
-    background: white;
+    background: rgb(233, 233, 233);
     border-radius: 0.5rem;
     z-index: 25;
     height: 100%;
@@ -291,6 +302,9 @@
     top: 0;
     left: 5%;
     font-size: 1.3rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 20rem;
 }
 
 .purple {
@@ -306,10 +320,11 @@
 
 input {
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     padding: 1rem;
     border:0.1rem solid rgb(221, 221, 221);
     border-radius: 0.4rem;
+    background: rgb(241, 241, 241);
 }
 
 
@@ -347,3 +362,108 @@ input {
     display: flex;
     flex-direction: column;
 }
+
+.invoice-date {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.invoice-date-label {
+    display: flex;
+    flex-direction: column;
+}
+
+.invoice-date-payment {
+    display: flex;
+    flex-direction: column;
+}
+
+select {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border:0.1rem solid rgb(221, 221, 221);
+    border-radius: 0.4rem;
+    background: rgb(241, 241, 241);
+}
+
+.billto-project {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.item-list-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-name {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.number {
+    width: 7rem;
+    appearance: none;
+}
+
+/* Disabling arrows */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
+}
+/* Disabling arrows end */
+
+.price {
+    width: 10rem;
+}
+
+.item-total {
+    margin-bottom: 2rem;
+}
+.item-total-second {
+    margin-top: 4.5rem;
+}
+
+/* Buttons */
+.add-item {
+    width: 52rem;
+}
+
+.modal-edit-buttons {
+    background: white;
+    z-index: 25;
+    height: 15%;
+    width: 50%;
+    padding: 10rem;
+    border-radius: 2rem;
+    position: absolute;
+    left: 5%;
+    top: 85%;  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}
+
+    
+    
+   
+   
+   
+    
+   

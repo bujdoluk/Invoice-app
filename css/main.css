@@ -67,6 +67,12 @@ h1 {
     color: #dfe3fa;
     font-family: 'Spartan', sans-serif;
     font-weight: 500;
+    font-size: 1.5rem;
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    z-index: 35;
 }
 
 .btn-2-dark:hover {
@@ -81,6 +87,12 @@ h1 {
     color: rgb(136,142,176);
     font-family: 'Spartan', sans-serif;
     font-weight: 500;
+    font-size: 1.5rem;
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    z-index: 35;
 }
 
 .btn-3-dark:hover {

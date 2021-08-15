@@ -2,11 +2,25 @@
 .main-view {
     overflow-x: hidden;
     overflow-y: hidden;
+    z-index: 5;
+    position: relative;
 
     display: flex;
     flex-direction: row;
     height: 100vh;
     background: #f8f8fb;
+}
+
+.filter-status {
+    border: none;
+    font-weight: bold;
+    font-size: 1.3rem;
+    background: #f8f8fb;
+}
+
+.grey {
+    color: rgb(136,142,176);
+    font-size: 1.2rem;
 }
 
 /* Sidepanel */
@@ -15,6 +29,7 @@
     border-radius: 0 3rem 3rem 0;
     width: 7%;
     height: 100vh;
+    z-index: 30;
 
     display: flex;
     flex-direction: column;
@@ -55,9 +70,9 @@
 }
 /* Invoices view */
 .invoices {
-    height: 90vh;
-    width: 40%;
-    margin: 0 auto;
+    height: 100vh;
+    width: 50%;
+    margin: -10rem auto;
 
     display: flex;
     flex-direction: column;
@@ -72,6 +87,7 @@
 .invoices-navbar {
     display: flex;
     flex-direction: row;
+    
 }
 
 .invoices-navbar-left {
@@ -131,3 +147,198 @@
 }
 
 .empty-img { margin-bottom: 2rem; }
+
+/* Modal New */
+.modal-new {
+    display: none;
+}
+
+.modal-container-new {
+    background: rgba(83, 83, 83, 0.6);
+    padding: 5rem;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    left: 0;
+   
+}
+
+.modal-content-new {
+    background: rgb(233, 233, 233);
+    border-radius: 0.5rem;
+    z-index: 25;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10rem;
+    position: absolute;
+    top: 0;
+    left: 5%;
+    font-size: 1.3rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 20rem;
+}
+
+.purple {
+    color: #7c5dfa;
+    margin: 2rem 0;
+}
+
+::placeholder {
+    color: black;
+    font-weight: bold;
+    opacity: 1;
+}
+
+input {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    border:0.1rem solid rgb(221, 221, 221);
+    border-radius: 0.4rem;
+    background: rgb(241, 241, 241);
+}
+
+.billfrom {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.billfrom-address-new {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.billfrom-city-new {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.billfrom-city-column-new {
+    display: flex;
+    flex-direction: column;
+}
+
+.billto-name-new {
+    display: flex;
+    flex-direction: column;
+}
+
+.billto-city-new {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.billto-city-column-new {
+    display: flex;
+    flex-direction: column;
+}
+
+.invoice-date-new {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.invoice-date-label-new {
+    display: flex;
+    flex-direction: column;
+}
+
+.invoice-date-payment-new {
+    display: flex;
+    flex-direction: column;
+}
+
+select {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border:0.1rem solid rgb(221, 221, 221);
+    border-radius: 0.4rem;
+    background: rgb(241, 241, 241);
+}
+
+.billto-project-new {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-list-new {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.item-list-name-new {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-name-new {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.number-new {
+    width: 7rem;
+    appearance: none;
+}
+
+/* Disabling arrows */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
+}
+/* Disabling arrows end */
+
+.price-new {
+    width: 10rem;
+}
+
+.item-total-new {
+    margin-bottom: 2rem;
+}
+.item-total-second-new {
+    margin-top: 4.5rem;
+}
+
+/* Buttons */
+.add-item-new {
+    width: 52rem;
+}
+
+.modal-new-buttons {
+    background: white;
+    z-index: 25;
+    height: 15%;
+    width: 50%;
+    padding: 10rem;
+    border-radius: 2rem;
+    position: absolute;
+    left: 5%;
+    top: 85%;  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}

@@ -32,21 +32,21 @@
     </section>
 
     <section class="invoices">
-      <div class="invoices-navbar">
+      <nav class="invoices-navbar">
 
         <div class="invoices-navbar-left">
           <h1 class="invoices-header">Invoices</h1>
-          <p>No invoices</p>
+          <p class="grey">No invoices</p>
         </div>
 
         <div class="invoices-navbar-right">
-          <label for="invoices">Filter by status</label>
-          <select name="invoices" id="invoices">
+          <select name="invoices" id="invoices" class="filter-status">
+            <option selected disabled>Filter by status</option>
             <option>Draft</option>
             <option>Pending</option>
             <option>Paid</option>
           </select>
-          <button class="btn-new-invoice">
+          <button class="btn-new-invoice" onclick="document.getElementById('new').style.display='block'">
             <div class="btn-new-invoice-white">
               <img class="new-invoice-img" src="/assets/icon-plus.svg" alt="Plus">
             </div>
@@ -54,64 +54,145 @@
             <p>New Invoice</p>
           </button>
         </div>
+      </nav>
 
-      </div>
-      <div>
+      <div id="empty">
         <img class="empty-img" src="/assets/illustration-empty.svg" alt="Empty">
         <p class="empty">There is nothing here</p>
-        <p>Create an invoice by clicking the<br><span class="bold">New Invoice</span> button and get started</p>
+        <p class="grey">Create an invoice by clicking the<br><span class="bold">New Invoice</span> button and get
+          started</p>
       </div>
     </section>
+
+    <!-- Modal New -->
+    <div id="new" class="modal-new">
+      <div class="modal-container-new">
+        <div class="modal-content-new">
+          <h1>New Invoice</h1>
+          <div class="billfrom">
+
+            <p class="purple">Bill From</p>
+            <div class="billfrom-address-new">
+              <label for="address" class="grey">Street Address</label>
+              <input id="myAddress" type="text" placeholder="19 Union Terrace" required>
+            </div>
+
+            <div class="billfrom-city-new">
+              <div class="billfrom-city-column-new">
+                <label for="city" class="grey">City</label>
+                <input id="myCity" type="text" placeholder="London">
+              </div>
+              <div class="billfrom-city-column-new">
+                <label for="postcode" class="grey">Post Code</label>
+                <input id="myPostCode" type="text" placeholder="E1 3EZ">
+              </div>
+              <div class="billfrom-city-column-new">
+                <label for="country" class="grey">Country</label>
+                <input id="myCountry" type="text" placeholder="United Kingdom">
+              </div>
+            </div>
+          </div>
+
+          <div class="billto-new">
+            <p class="purple">Bill To</p>
+
+            <div class="billto-name-new">
+              <label for="name" class="grey">Client's Name</label>
+              <input id="clientName" type="name" placeholder="Alex Grim" required>
+
+              <label for="email" class="grey">Client's Email</label>
+              <input id="clientEmail" type="email" placeholder="alexgrim@gmail.com" required>
+
+              <label for="street" class="grey">Street Address</label>
+              <input id="clientAddress" type="text" placeholder="94 Church Way" required>
+            </div>
+
+            <div class="billto-city-new">
+              <div class="billto-city-column-new">
+                <label for="city" class="grey">City</label>
+                <input id="clientCity" type="text" placeholder="Bradford" required>
+              </div>
+              <div class="billto-city-column-new">
+                <label for="postcode" class="grey">Post Code</label>
+                <input id="clientPostCode" type="text" placeholder="DB1 9PB" required>
+              </div>
+              <div class="billto-city-column-new">
+                <label for="country" class="grey">Country</label>
+                <input id="clientCountry" type="text" placeholder="United Kingdom" required>
+              </div>
+            </div>
+
+            <div class="invoice-date-new">
+              <div class="invoice-date-label-new">
+                <label for="invoiceDate" class="grey">Invoice Date</label>
+                <input id="invoiceDate" type="date" placeholder="20 Aug 2012" required>
+              </div>
+              <div class="invoice-date-payment-new">
+                <label for="paymentTerms" class="grey">Payment Terms</label>
+                <select id="paymentTerms" name="date">
+                  <option value="1">Net 1 day</option>
+                  <option value="7">Net 7 days</option>
+                  <option value="14">Net 14 days</option>
+                  <option value="30">Net 30 days</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="billto-project-new">
+              <label for="project" class="grey">Project Description</label>
+              <input id="projectDescription" type="text" placeholder="Graphic Design" required>
+              <p class="grey list-name-new">Item List</p>
+            </div>
+          </div>
+
+          <div class="item-list-new">
+            <div class="item-list-name-new">
+              <label for="item" class="grey">Item Name</label>
+              <input type="text" placeholder="Banner Design" required>
+              <input type="text" placeholder="Email Design" required>
+            </div>
+
+            <div class="item-list-name-new">
+              <label for="qty" class="grey">Qty.</label>
+              <input type="number" class="number-new" placeholder="1" required width="4rem">
+              <input type="number" class="number-new" placeholder="2" required>
+            </div>
+
+            <div class="item-list-name-new">
+              <label for="price" class="grey">Price</label>
+              <input type="number" class="price-new" placeholder="156.00" required>
+              <input type="number" class="price-new" placeholder="200.00" required>
+            </div>
+
+            <div class="item-list-name-new">
+              <label for="total" class="grey item-total-new">Total</label>
+              <p class="grey item-total-new">156.00</p>
+              <p class="grey item-total-second-new">200.00</p>
+            </div>
+
+            <div class="item-list-name-new">
+              <div class="item-total-new">&nbsp;</div>
+              <img class="item-total-new" src="/assets/icon-delete.svg" alt="Delete">
+              <img class="item-total item-total-second-new" src="/assets/icon-delete.svg" alt="Delete">
+            </div>
+          </div>
+
+          <div>
+            <button class="btn-2-light add-item-new">+ Add New Item</button>
+          </div>
+
+        </div>
+        <div class="modal-new-buttons">
+          <button class="btn-2-light" onclick="document.getElementById('new').style.display='none'">Discard</button>
+          <button class="btn-3-dark" onclick="saveDraft()">Save as Draft</button>
+          <button class="btn-1">Save & Send</button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Edit End -->
   </section>
 
-
-  <!-- Create new invoice form -->
-  Go back
-
-  New Invoice
-
-  Bill From
-
-  Street Address
-  City
-  Post Code
-  Country
-
-  Bill To
-
-  Client's Name
-  Client's Email
-  e.g. email@example.com
-  Street Address
-  City
-  Post Code
-  Country
-
-  Invoice Date
-
-  Payment Terms
-  Net 1 day
-  Net 7 days
-  Net 14 days
-  Net 30 days
-
-  Project Description
-  e.g. Graphic Design Service
-
-  Item List
-
-  Item Name
-  Qty.
-  Price
-  Total
-
-  Add New Item
-
-  Discard
-  Save as Draft
-  Save & Send
-  <!-- Create new invoice end -->
-  <script src="skusobny.js"></script>
+  <script src="/js/saveDraft.js"></script>
 </body>
 
 </html>
