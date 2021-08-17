@@ -15,9 +15,10 @@
 .sidepanel {
     background: #1e2139;
     border-radius: 0 3rem 3rem 0;
-    width: 7%;
+    width: 12rem;
     height: 100vh;
     z-index: 30;
+    position: fixed;
 
     display: flex;
     flex-direction: column;
@@ -27,7 +28,13 @@
 .logo {
     width: 100%;
     height: 100%;
-    border-radius: 0 3rem 0 0;
+    padding: 3.5rem;
+    color: white;
+}
+
+.logo-background {
+    background: linear-gradient(#9277ff 50%, #7c5dfa 50%);
+    border-radius: 0 2rem 0 0;
 }
 
 .line { border-top: 0.1rem solid rgb(136,142,176); }
@@ -52,10 +59,23 @@
 
 .moon {
     margin: 0 auto;
-    padding: 3.1rem;
+    padding-bottom: 2rem;
 }
 
-.moon-img { width: 150%; }
+.moon-img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.sun {
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+.sun-img {
+    width: 5rem;
+    height: 5rem;
+}
 
 /* Invoices */
 .invoices {
@@ -460,8 +480,49 @@ input[type=number]{
     gap: 2rem;
 }
 
+/* Dark Mode */
+.btn-moon {
+    width: 8rem;
+    height: 8rem;
+    border: 0;
+    background: #1e2139;
+}
+
+.dark-mode-1 {
+    background-color: #141625;
+    color: white;
+    scrollbar-color: #1e2139;
+}
+
+.dark-mode-2 {
+    background-color: #1e2139;
+    color: white;
+    border-color: #1e2139;
+    scrollbar-color: #1e2139;
+    box-shadow: none;
+} 
+
+.dark-mode-3 {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}  
+
+.dark-mode-4 {
+    background-color: black;
+}  
     
-    
+.dark-mode-5 {
+    background-color: #252945;
+} 
+
+.dark-mode-6 {
+    color: white;
+} 
+
+.dark-mode-7 {
+    background: rgb(59, 47, 34);
+} 
+  
    
    
    

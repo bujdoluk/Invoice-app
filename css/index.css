@@ -27,9 +27,10 @@
 .sidepanel {
     background: #1e2139;
     border-radius: 0 3rem 3rem 0;
-    width: 7%;
+    width: 12rem;
     height: 100vh;
     z-index: 30;
+    position: fixed;
 
     display: flex;
     flex-direction: column;
@@ -38,8 +39,14 @@
 
 .logo {
     width: 100%;
-    height: 100%;
     border-radius: 0 3rem 0 0;
+    padding: 3.5rem;
+    color: white;
+}
+
+.logo-background {
+    background: linear-gradient(#9277ff 50%, #7c5dfa 50%);
+    border-radius: 0 2rem 0 0;
 }
 
 .line {
@@ -62,11 +69,12 @@
 
 .moon {
     margin: 0 auto;
-    padding: 3.1rem;
+    padding-bottom: 2rem;
 }
 
 .moon-img {
-    width: 150%;
+    width: 5rem;
+    height: 5rem;
 }
 /* Invoices view */
 .invoices {
@@ -342,3 +350,41 @@ input[type=number]{
     align-items: center;
     gap: 2rem;
 }
+
+/* Dark Mode */
+.btn-moon {
+    width: 8rem;
+    height: 8rem;
+    border: 0;
+    background: #1e2139;
+}
+
+.dark-mode-1 {
+    background-color: #141625;
+    color: white;
+    scrollbar-color: #1e2139;
+}
+
+.dark-mode-2 {
+    background-color: #1e2139;
+    color: white;
+    border-color: #1e2139;
+    scrollbar-color: #1e2139;
+}
+
+.dark-mode-3 {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}  
+
+.dark-mode-4 {
+    background-color: black;
+}  
+    
+.dark-mode-5 {
+    background-color: #252945;
+} 
+
+.dark-mode-6 {
+    color: white;
+} 
