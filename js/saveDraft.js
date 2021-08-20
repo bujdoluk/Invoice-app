@@ -22,7 +22,7 @@ function renderInvoice() {
     document.getElementById('invoices-array').innerHTML =
 
         `<div class="invoices-element">
-            <div>X5435645</div>
+            <div>${generateID()}</div>
             <div class="grey">${invoice.invoiceDate}</div>
             <div class="grey">${invoice.clientName}</div>
             <div class="bold">120</div>
@@ -36,22 +36,49 @@ function renderInvoice() {
 function saveDraft() {
     let drafts = [];
 
-    if (!drafts == "") {
-        document.getElementById('empty').style.display = 'none';
-    }
-
+    document.getElementById('empty').style.display = 'none';
 
     drafts.push(invoice);
-    //console.log(drafts)
+    console.log(drafts)
 
     invoices.push(drafts);
-    //console.log(invoices);
+    console.log(invoices);
 
     document.getElementById('new').style.display = 'none';
+
+
     renderInvoice();
 }
 
+function generateID() {
+    const symbol = "#";
+    const numbers = Math.floor((Math.random() * 8999) + 1000);
+    const letters = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 2).toUpperCase();
 
+    const id = symbol + letters + numbers;
+
+    return id;
+}
+
+// function check() {
+//     let valid = true;
+//     let error = "";
+//     let field = "";
+
+//     field = document.getElementById('clientName');
+//     error = document.getElementById('cname');
+
+//     if (!field.checkValidity()) {
+//         valid = false;
+//         field.classList.add("err");
+//         error.innerHTML = "Name must be 2-4 characters\r\n";
+//     } else {
+//         field.classList.remove("err");
+//         error.innerHTML = "";
+//     }
+
+//     return valid;
+// }
 
 
 

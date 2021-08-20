@@ -136,3 +136,9 @@ h1 {
     font-weight: 500;
 }
 
+/* Inputs */
+
+input:focus {
+    border: #7c5dfa;
+}
+

@@ -69,7 +69,7 @@
 
     <!-- Modal New -->
     <div id="new" class="modal-new">
-      <div class="modal-container-new">
+      <form class="modal-container-new">
         <div class="modal-content-new">
           <h1>New Invoice</h1>
           <div class="billfrom">
@@ -100,6 +100,7 @@
             <p class="purple">Bill To</p>
 
             <div class="billto-name-new">
+              <div id=cname class="emsg"></div><br>
               <label for="name" class="grey">Client's Name</label>
               <input id="clientName" class="input" type="name" required>
 
@@ -130,6 +131,7 @@
                 <label for="invoiceDate" class="grey">Invoice Date</label>
                 <input id="invoiceDate" class="input" type="date" required>
               </div>
+
               <div class="invoice-date-payment-new">
                 <label for="paymentTerms" class="grey">Payment Terms</label>
                 <select id="paymentTerms" name="date" class="input">
@@ -190,13 +192,14 @@
           <button class="btn-3-dark" onclick="saveDraft()">Save as Draft</button>
           <button class="btn-1">Save & Send</button>
         </div>
-      </div>
+      </form>
     </div>
     <!-- Modal Edit End -->
   </section>
 
   <script src="/js/saveDraft.js"></script>
   <script src="/js/toggleDarkMode.js"></script>
+
 </body>
 
 </html>

@@ -59,6 +59,11 @@ function toggleDarkMode() {
         elementDetails[i].classList.toggle('dark-mode-2');
     }
 
+    let elementInvoice = document.getElementsByClassName('invoices-element');
+    for (i = 0; i < elementInvoice.length; i++) {
+        elementInvoice[i].classList.toggle('dark-mode-2');
+    }
+
     // Dark Mode 3
 
     let element6 = document.getElementsByClassName('modal-container-edit');

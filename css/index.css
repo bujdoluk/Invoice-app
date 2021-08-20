@@ -2,12 +2,13 @@
 .main-view {
     overflow-x: hidden;
     overflow-y: hidden;
+    overflow: hidden;
     z-index: 5;
     position: relative;
 
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: 100%;
     background: #f8f8fb;
 }
 
@@ -76,9 +77,13 @@
     width: 5rem;
     height: 5rem;
 }
+
+.moon-img:hover {
+    filter: brightness(120%);
+}
 /* Invoices view */
 .invoices {
-    height: 100vh;
+    height: 100%;
     width: 50%;
     margin: 10rem auto;
 
@@ -353,6 +358,12 @@ input::-webkit-inner-spin-button {
 input[type=number]{
     -moz-appearance: textfield;
 }
+
+input:focus {
+    outline: none !important;
+    border:1px solid #7c5dfa;
+}
+
 /* Disabling arrows end */
 
 .price-new {
@@ -380,7 +391,7 @@ input[type=number]{
     border-radius: 2rem;
     position: absolute;
     left: 5%;
-    top: 85%;  
+    top: 75%;  
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -407,6 +418,7 @@ input[type=number]{
     color: white;
     border-color: #1e2139;
     scrollbar-color: #1e2139;
+    box-shadow: none;
 }
 
 .dark-mode-3 {
@@ -425,3 +437,15 @@ input[type=number]{
 .dark-mode-6 {
     color: white;
 } 
+
+/* Error messages */
+
+.err { 
+    background: #ffe6ee;
+    border: 0.1rem solid #b1395f;      
+}
+
+.emsg { 
+    color: #c12020; 
+    margin-left: auto;
+}
