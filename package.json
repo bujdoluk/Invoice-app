@@ -4,5 +4,8 @@
     "private": true,
     "scripts": {
         "serve": "node skusobny.js"
+    },
+    "dependencies": {
+        "firebase": "^8.10.0"
     }
 }

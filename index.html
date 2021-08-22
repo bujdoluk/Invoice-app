@@ -10,6 +10,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/sidepanel.css">
   <title>Frontend Mentor | Invoice app</title>
 </head>
 
@@ -27,7 +28,7 @@
         </div>
         <div class="line">&nbsp;</div>
         <div class="avatar">
-          <img class="avatar-img" src="/assets/image-avatar.jpg" alt="Avatar">
+          <img class="avatar-img" id="img" src="/assets/image-avatar.jpg" alt="Avatar">
         </div>
       </div>
     </section>
@@ -69,136 +70,144 @@
 
     <!-- Modal New -->
     <div id="new" class="modal-new">
-      <form class="modal-container-new">
-        <div class="modal-content-new">
-          <h1>New Invoice</h1>
-          <div class="billfrom">
+      <form>
+        <div class="modal-container-new">
+          <div class="modal-content-new">
+            <h1>New Invoice</h1>
+            <div class="billfrom">
 
-            <p class="purple">Bill From</p>
-            <div class="billfrom-address-new">
-              <label for="address" class="grey">Street Address</label>
-              <input id="myAddress" class="input" type="text" required>
+              <p class="purple">Bill From</p>
+              <div class="billfrom-address-new">
+                <label for="address" class="grey">Street Address</label>
+                <input id="myAddress" class="input" type="text" required>
+              </div>
+
+              <div class="billfrom-city-new">
+                <div class="billfrom-city-column-new">
+                  <label for="city" class="grey">City</label>
+                  <input id="myCity" class="input" type="text">
+                </div>
+                <div class="billfrom-city-column-new">
+                  <label for="postcode" class="grey">Post Code</label>
+                  <input id="myPostCode" class="input" type="text">
+                </div>
+                <div class="billfrom-city-column-new">
+                  <label for="country" class="grey">Country</label>
+                  <input id="myCountry" class="input" type="text">
+                </div>
+              </div>
             </div>
 
-            <div class="billfrom-city-new">
-              <div class="billfrom-city-column-new">
-                <label for="city" class="grey">City</label>
-                <input id="myCity" class="input" type="text">
+            <div class="billto-new">
+              <p class="purple">Bill To</p>
+
+              <div class="billto-name-new">
+                <div id=cname class="emsg"></div><br>
+                <label for="name" class="grey">Client's Name</label>
+                <input id="clientName" class="input" type="name" required>
+
+                <label for="email" class="grey">Client's Email</label>
+                <input id="clientEmail" class="input" type="email" required>
+
+                <label for="street" class="grey">Street Address</label>
+                <input id="clientAddress" class="input" type="text" required>
               </div>
-              <div class="billfrom-city-column-new">
-                <label for="postcode" class="grey">Post Code</label>
-                <input id="myPostCode" class="input" type="text">
+
+              <div class="billto-city-new">
+                <div class="billto-city-column-new">
+                  <label for="city" class="grey">City</label>
+                  <input id="clientCity" class="input" type="text" required>
+                </div>
+                <div class="billto-city-column-new">
+                  <label for="postcode" class="grey">Post Code</label>
+                  <input id="clientPostCode" class="input" type="text" required>
+                </div>
+                <div class="billto-city-column-new">
+                  <label for="country" class="grey">Country</label>
+                  <input id="clientCountry" class="input" type="text" required>
+                </div>
               </div>
-              <div class="billfrom-city-column-new">
-                <label for="country" class="grey">Country</label>
-                <input id="myCountry" class="input" type="text">
+
+              <div class="invoice-date-new">
+                <div class="invoice-date-label-new">
+                  <label for="invoiceDate" class="grey">Invoice Date</label>
+                  <input id="invoiceDate" class="input" type="date" required>
+                </div>
+
+                <div class="invoice-date-payment-new">
+                  <label for="paymentTerms" class="grey">Payment Terms</label>
+                  <select id="paymentTerms" name="date" class="input">
+                    <option value="1" class="input">Net 1 day</option>
+                    <option value="7" class="input">Net 7 days</option>
+                    <option value="14" class="input">Net 14 days</option>
+                    <option value="30" class="input">Net 30 days</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="billto-project-new">
+                <label for="project" class="grey">Project Description</label>
+                <input id="projectDescription" type="text" class="input" required>
+                <p class="grey list-name-new">Item List</p>
               </div>
             </div>
+
+            <div class="item-list-new">
+              <div class="item-list-name-new">
+                <label for="item" class="grey">Item Name</label>
+                <input type="text" class="input" required>
+                <input type="text" class="input" required>
+              </div>
+
+              <div class="item-list-name-new">
+                <label for="qty" class="grey">Qty.</label>
+                <input type="number" class="number-new input" required width="4rem">
+                <input type="number" class="number-new input" required>
+              </div>
+
+              <div class="item-list-name-new">
+                <label for="price" class="grey">Price</label>
+                <input type="number" class="price-new input" required>
+                <input type="number" class="price-new input" required>
+              </div>
+
+              <div class="item-list-name-new">
+                <label for="total" class="grey item-total-new">Total</label>
+                <p class="grey item-total-new">156.00</p>
+                <p class="grey item-total-second-new">200.00</p>
+              </div>
+
+              <div class="item-list-name-new">
+                <div class="item-total-new">&nbsp;</div>
+                <img class="item-total-new" src="/assets/icon-delete.svg" alt="Delete">
+                <img class="item-total item-total-second-new" src="/assets/icon-delete.svg" alt="Delete">
+              </div>
+            </div>
+
+            <div>
+              <button class="btn-2-light add-item-new input">+ Add New Item</button>
+            </div>
+
           </div>
 
-          <div class="billto-new">
-            <p class="purple">Bill To</p>
-
-            <div class="billto-name-new">
-              <div id=cname class="emsg"></div><br>
-              <label for="name" class="grey">Client's Name</label>
-              <input id="clientName" class="input" type="name" required>
-
-              <label for="email" class="grey">Client's Email</label>
-              <input id="clientEmail" class="input" type="email" required>
-
-              <label for="street" class="grey">Street Address</label>
-              <input id="clientAddress" class="input" type="text" required>
-            </div>
-
-            <div class="billto-city-new">
-              <div class="billto-city-column-new">
-                <label for="city" class="grey">City</label>
-                <input id="clientCity" class="input" type="text" required>
-              </div>
-              <div class="billto-city-column-new">
-                <label for="postcode" class="grey">Post Code</label>
-                <input id="clientPostCode" class="input" type="text" required>
-              </div>
-              <div class="billto-city-column-new">
-                <label for="country" class="grey">Country</label>
-                <input id="clientCountry" class="input" type="text" required>
-              </div>
-            </div>
-
-            <div class="invoice-date-new">
-              <div class="invoice-date-label-new">
-                <label for="invoiceDate" class="grey">Invoice Date</label>
-                <input id="invoiceDate" class="input" type="date" required>
-              </div>
-
-              <div class="invoice-date-payment-new">
-                <label for="paymentTerms" class="grey">Payment Terms</label>
-                <select id="paymentTerms" name="date" class="input">
-                  <option value="1" class="input">Net 1 day</option>
-                  <option value="7" class="input">Net 7 days</option>
-                  <option value="14" class="input">Net 14 days</option>
-                  <option value="30" class="input">Net 30 days</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="billto-project-new">
-              <label for="project" class="grey">Project Description</label>
-              <input id="projectDescription" type="text" class="input" required>
-              <p class="grey list-name-new">Item List</p>
-            </div>
+          <div class="modal-new-buttons">
+            <button class="btn-2-light" onclick="document.getElementById('new').style.display='none'">Discard</button>
+            <button class="btn-3-dark" onclick="saveDraft()">Save as Draft</button>
+            <button class="btn-1">Save & Send</button>
           </div>
 
-          <div class="item-list-new">
-            <div class="item-list-name-new">
-              <label for="item" class="grey">Item Name</label>
-              <input type="text" class="input" required>
-              <input type="text" class="input" required>
-            </div>
-
-            <div class="item-list-name-new">
-              <label for="qty" class="grey">Qty.</label>
-              <input type="number" class="number-new input" required width="4rem">
-              <input type="number" class="number-new input" required>
-            </div>
-
-            <div class="item-list-name-new">
-              <label for="price" class="grey">Price</label>
-              <input type="number" class="price-new input" required>
-              <input type="number" class="price-new input" required>
-            </div>
-
-            <div class="item-list-name-new">
-              <label for="total" class="grey item-total-new">Total</label>
-              <p class="grey item-total-new">156.00</p>
-              <p class="grey item-total-second-new">200.00</p>
-            </div>
-
-            <div class="item-list-name-new">
-              <div class="item-total-new">&nbsp;</div>
-              <img class="item-total-new" src="/assets/icon-delete.svg" alt="Delete">
-              <img class="item-total item-total-second-new" src="/assets/icon-delete.svg" alt="Delete">
-            </div>
-          </div>
-
-          <div>
-            <button class="btn-2-light add-item-new input">+ Add New Item</button>
-          </div>
-
-        </div>
-        <div class="modal-new-buttons">
-          <button class="btn-2-light" onclick="document.getElementById('new').style.display='none'">Discard</button>
-          <button class="btn-3-dark" onclick="saveDraft()">Save as Draft</button>
-          <button class="btn-1">Save & Send</button>
         </div>
       </form>
     </div>
     <!-- Modal Edit End -->
   </section>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
   <script src="/js/saveDraft.js"></script>
   <script src="/js/toggleDarkMode.js"></script>
+  <script src="/js/app.js"></script>
 
 </body>
 

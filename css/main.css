@@ -142,3 +142,57 @@ input:focus {
     border: #7c5dfa;
 }
 
+/* Dark Mode */
+.btn-moon {
+    width: 8rem;
+    height: 8rem;
+    border: 0;
+    background: #1e2139;
+}
+
+.dark-mode-1 {
+    background-color: #141625;
+    color: white;
+    scrollbar-color: #1e2139;
+}
+
+.dark-mode-2 {
+    background-color: #1e2139;
+    color: white;
+    border-color: #1e2139;
+    scrollbar-color: #1e2139;
+    box-shadow: none;
+} 
+
+.dark-mode-3 {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}  
+
+.dark-mode-4 {
+    background-color: black;
+}  
+    
+.dark-mode-5 {
+    background-color: #252945;
+} 
+
+.dark-mode-6 {
+    color: white;
+} 
+
+.dark-mode-7 {
+    background: rgb(59, 47, 34);
+} 
+
+/* Error messages */
+
+.err { 
+    background: #ffe6ee;
+    border: 0.1rem solid #b1395f;      
+}
+
+.emsg { 
+    color: #c12020; 
+    margin-left: auto;
+}

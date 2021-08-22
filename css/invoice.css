@@ -11,72 +11,6 @@
     background: #f8f8fb;
 }
 
-/* Sidepanel */
-.sidepanel {
-    background: #1e2139;
-    border-radius: 0 3rem 3rem 0;
-    width: 12rem;
-    height: 100vh;
-    z-index: 30;
-    position: fixed;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.logo {
-    width: 100%;
-    height: 100%;
-    padding: 3.5rem;
-    color: white;
-}
-
-.logo-background {
-    background: linear-gradient(#9277ff 50%, #7c5dfa 50%);
-    border-radius: 0 2rem 0 0;
-}
-
-.line { border-top: 0.1rem solid rgb(136,142,176); }
-
-.avatar { 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.avatar-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    padding: 2rem;
-}
-
-.bottom-panel {
-    display: flex;
-    flex-direction: column;
-}
-
-.moon {
-    margin: 0 auto;
-    padding-bottom: 2rem;
-}
-
-.moon-img {
-    width: 5rem;
-    height: 5rem;
-}
-
-.sun {
-    margin: 0 auto;
-    padding-bottom: 2rem;
-}
-
-.sun-img {
-    width: 5rem;
-    height: 5rem;
-}
-
 /* Invoices */
 .invoices {
     display: flex;
@@ -85,6 +19,18 @@
     height: 100vh;
     margin: 0 auto;
     font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .invoices {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        height: 80vh;
+        margin: 0 auto;
+        font-size: 1.5rem;
+        padding: 8rem 0rem;
+    }    
 }
 
 .back {
@@ -170,12 +116,23 @@
     z-index: 5;
  }
 
+ @media only screen and (max-width: 768px) {
+    .details {
+        padding: 3rem; 
+     } 
+}
+
  .details-id {
     display: flex;
     flex-direction: row;
     margin-bottom: 5rem;
-   
  }
+
+ @media only screen and (max-width: 768px) {
+    .details-id {
+        margin-bottom: 3rem;
+     }
+}
 
  .details-address {
     line-height: 2.5rem;
@@ -203,6 +160,14 @@
     gap: 15rem;
     margin-bottom: 5rem;
  }
+
+ @media only screen and (max-width: 768px) {
+    .invoice-details {
+        line-height: 3rem;
+        gap: 5rem;
+        margin-bottom: 3rem;
+     }
+}
 
 .invoice-details-dates {
     display: flex;
@@ -314,7 +279,7 @@
 }
 
 .modal-content-edit {
-    background: rgb(233, 233, 233);
+    background: linear-gradient(white 50%, rgb(189, 189, 189));
     border-radius: 0.5rem;
     z-index: 25;
     height: 100%;
@@ -331,6 +296,42 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding-bottom: 20rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .modal-content-edit {
+        background: linear-gradient(white 50%, rgb(189, 189, 189));
+        width: 85%;
+        padding: 12rem 5rem;
+        left: 0;
+    }
+}
+
+.modal-edit-buttons {
+    background: white;
+    z-index: 25;
+    height: 15%;
+    width: 50%;
+    padding: 10rem;
+    border-radius: 2rem;
+    position: absolute;
+    left: 5%;
+    top: 85%;  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .modal-edit-buttons {
+        width: 85%;
+        padding: 2rem 5rem 6rem 5rem;
+        border-radius: 0rem 2rem 2rem 0;
+        left: 0;
+        top: 90%;  
+    }
 }
 
 .purple {
@@ -474,66 +475,9 @@ input[type=number]{
     width: 52rem;
 }
 
-.modal-edit-buttons {
-    background: white;
-    z-index: 25;
-    height: 15%;
-    width: 50%;
-    padding: 10rem;
-    border-radius: 2rem;
-    position: absolute;
-    left: 5%;
-    top: 85%;  
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 2rem;
-}
 
-/* Dark Mode */
-.btn-moon {
-    width: 8rem;
-    height: 8rem;
-    border: 0;
-    background: #1e2139;
-}
 
-.dark-mode-1 {
-    background-color: #141625;
-    color: white;
-    scrollbar-color: #1e2139;
-}
 
-.dark-mode-2 {
-    background-color: #1e2139;
-    color: white;
-    border-color: #1e2139;
-    scrollbar-color: #1e2139;
-    box-shadow: none;
-} 
-
-.dark-mode-3 {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-}  
-
-.dark-mode-4 {
-    background-color: black;
-}  
-    
-.dark-mode-5 {
-    background-color: #252945;
-} 
-
-.dark-mode-6 {
-    color: white;
-} 
-
-.dark-mode-7 {
-    background: rgb(59, 47, 34);
-} 
-  
    
    
    
