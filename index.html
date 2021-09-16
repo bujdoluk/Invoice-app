@@ -11,11 +11,80 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/css/sidepanel.css">
+  <link rel="stylesheet" href="/css/invoice.css">
+  <link rel="stylesheet" href="/css/login-signup.css">
   <title>Frontend Mentor | Invoice app</title>
 </head>
 
 <body>
-  <section class="main-view">
+  <div class="container" id="createAccount">
+    <form class="form">
+      <h1 class="form__title">Create Account</h1>
+      <div class="form__message form__message--error"></div>
+      <div class="form__input-group">
+        <input type="text" id="signUpUsername" class="form__input" autofocus placeholder="Username">
+        <div class="form__input-error-message"></div>
+      </div>
+      <div class="form__input-group">
+        <input type="text" id="email" class="form__input" autofocus placeholder="Email Address">
+        <div class="form__input-error-message"></div>
+      </div>
+      <div class="form__input-group">
+        <input type="password" id="password" class="form__input" autofocus placeholder="Password">
+        <div class="form__input-error-message"></div>
+      </div>
+      <div class="form__input-group">
+        <input type="password" id="confirmPassword" class="form__input" autofocus placeholder="Confirm password">
+        <div class="form__input-error-message"></div>
+      </div>
+
+      <div class="form__input-group">
+        <input type="file" id="actual-btn" hidden onchange='chooseFile(e)' />
+        <label for="actual-btn">Choose File</label>
+        <span id="file-chosen">No file chosen</span>
+      </div>
+
+      <div class="form__button form__input-group" onclick='signUpBtnPressed()'>Sign up</div>
+
+      <div class="form__input-group form__button">
+        <a href="/index.html" id="browse">Browse as a Guest</a>
+      </div>
+
+      <p class="form__text">
+        <a class="form__link" href="/login.html" id="linkLogin">Already have an account? Sign in</a>
+      </p>
+    </form>
+  </div>
+
+  <div class="container" id="login">
+    <form class="form">
+      <h1 class="form__title">Login</h1>
+      <div class="form__message form__message--error"></div>
+      <div class="form__input-group">
+        <input type="text" class="form__input" autofocus placeholder="Username or email">
+        <div class="form__input-error-message"></div>
+      </div>
+      <div class="form__input-group">
+        <input type="password" class="form__input" autofocus placeholder="Password">
+        <div class="form__input-error-message"></div>
+      </div>
+      <button class="form__button form__input-group" type="submit">Continue</button>
+
+      <div class="form__input-group form__button">
+        <a href="/index.html" id="browse">Browse as a Guest</a>
+      </div>
+
+      <p class="form__text">
+        <a href="#" class="form__link">Forgot your password?</a>
+      </p>
+      <p class="form__text">
+        <a class="form__link" href="/signup.html" id="linkCreateAccount">Don't have an account? Create
+          account</a>
+      </p>
+    </form>
+  </div>
+
+  <section class="main-view" id="main-view">
     <section class="sidepanel">
       <div class="logo-background">
         <img class="logo" src="/assets/logo.svg" alt="logo">
@@ -43,7 +112,7 @@
 
         <div class="invoices-navbar-right">
           <select name="invoices" id="invoices" class="filter-status">
-            <option selected disabled>Filter by status</option>
+            <option selected disabled>Filter <span class="filter">by status</span></option>
             <option>Draft</option>
             <option>Pending</option>
             <option>Paid</option>
@@ -103,14 +172,18 @@
 
               <div class="billto-name-new">
                 <div id=cname class="emsg"></div><br>
-                <label for="name" class="grey">Client's Name</label>
-                <input id="clientName" class="input" type="name" required>
-
-                <label for="email" class="grey">Client's Email</label>
-                <input id="clientEmail" class="input" type="email" required>
-
-                <label for="street" class="grey">Street Address</label>
-                <input id="clientAddress" class="input" type="text" required>
+                <div class="billto-name-column-new">
+                  <label for="name" class="grey">Client's Name</label>
+                  <input id="clientName" class="input" type="name" required>
+                </div>
+                <div class="billto-name-column-new">
+                  <label for="email" class="grey">Client's Email</label>
+                  <input id="clientEmail" class="input" type="email" required>
+                </div>
+                <div class="billto-name-column-new">
+                  <label for="street" class="grey">Street Address</label>
+                  <input id="clientAddress" class="input" type="text" required>
+                </div>
               </div>
 
               <div class="billto-city-new">
@@ -191,7 +264,7 @@
           </div>
 
           <div class="modal-new-buttons">
-            <button class="btn-2-light" onclick="document.getElementById('new').style.display='none'">Discard</button>
+            <button class="btn-2-light" onclick="discard()">Discard</button>
             <button class="btn-3-dark" onclick="saveDraft()">Save as Draft</button>
             <button class="btn-1">Save & Send</button>
           </div>
@@ -200,10 +273,253 @@
       </form>
     </div>
     <!-- Modal Edit End -->
+
+    <!-- INVOICE VIEW -->
+
+    <section class="body-view" id="body-view">
+      <section class="invoices">
+
+        <div class="back">
+          <a href="/index.html" class="back-link">
+            <img src="/assets/icon-arrow-left.svg" class="back-img" alt="arrow-left">
+            <p class="back-paragraph">Go back</p>
+          </a>
+        </div>
+
+        <div class="status">
+          <div class="status-name grey">Status</div>
+          <div class="status-value">
+            <p id="pending" class="status-value-update"><span class="status-dot">&#11044;</span> Pending</p>
+            <p id="paid" class="status-value-update-paid">
+              <span class="status-dot-paid">&#11044;</span> Paid
+            </p>
+          </div>
+
+          <div class="status-buttons">
+            <button class="btn-2-light edit"
+              onclick="document.getElementById('edit').style.display='block'">Edit</button>
+            <button class="btn-5-red" onclick="document.getElementById('delete').style.display='block'">Delete</button>
+            <button class="btn-1" onclick="paid()">Mark as Paid</button>
+          </div>
+        </div>
+
+        <section class="details">
+          <div class="details-id">
+            <div>
+              <p class="id"><span class="grey">#</span>XM9141</p>
+              <p class="grey">Graphic Design</p>
+            </div>
+
+            <div class="details-address">
+              <p>19 Union Terrace</p>
+              <p>London</p>
+              <p>E1 3EZ</p>
+              <p>United Kingdom</p>
+            </div>
+          </div>
+
+          <div class="invoice-details">
+            <div class="invoice-details-dates">
+              <div>
+                <p class="grey">Invoice Date</p>
+                <p class="bold">21 Aug 2021</p>
+              </div>
+              <div>
+                <p class="grey">Payment Date</p>
+                <p class="bold">20 Sep 2021</p>
+              </div>
+            </div>
+
+            <div>
+              <p class="grey">Bill to</p>
+              <p class="bold">Alex Grim</p>
+              <p class="grey">94 Church Way</p>
+              <p class="grey">Bradfor</p>
+              <p class="grey">BDI 9PB</p>
+              <p class="grey">United Kingdom</p>
+            </div>
+
+            <div>
+              <p class="grey">Sent to</p>
+              <p class="bold">alexgrim@gmail.com</p>
+            </div>
+          </div>
+
+          <table class="invoice-table">
+            <tr class="invoice-table-heading">
+              <th class="grey">Item Name</th>
+              <th class="grey">QTY.</th>
+              <th class="grey">Price</th>
+              <th class="grey">Total</th>
+            </tr>
+            <tr class="unit">
+              <td class="bold">Banner Desing</td>
+              <td>1</td>
+              <td>&#163; 156.00</td>
+              <td>&#163; 156.00</td>
+            </tr>
+          </table>
+          <div class="amount">
+            <p>Amount Due</p>
+            <p class="amount-number">&#163; 556.00</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="buttons-bottom">
+        <div>
+          <button class="btn-2-light edit" onclick="document.getElementById('edit').style.display='block'">Edit</button>
+        </div>
+        <div>
+          <button class="btn-5-red" onclick="document.getElementById('delete').style.display='block'">Delete</button>
+        </div>
+        <div>
+          <button class="btn-1" onclick="paid()">Mark as Paid</button>
+        </div>
+      </section>
+    </section>
+
+    <div id="delete" class="modal-delete">
+      <div class="modal-container">
+        <div class="modal-content">
+          <p class="bold confirm">Confirm Deletion</p>
+          <p class="grey delete-paragraph">Are you sure you want to delete invoice #54ds54? This action cannot be
+            undone.</p>
+          <div class="modal-buttons">
+            <button onclick="document.getElementById('delete').style.display='none'"
+              class="btn-2-light btn-cancel">Cancel</button>
+            <button class="btn-5-red">Delete</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="edit" class="modal-edit">
+      <div class="modal-container-edit">
+        <div class="modal-content-edit">
+          <h1>Edit <span class="grey">#</span>XM9141</h1>
+          <div class="billfrom">
+
+            <p class="purple">Bill Form</p>
+            <div class="billfrom-address">
+              <label for="address" class="grey">Street Address</label>
+              <input type="text" class="input" required>
+            </div>
+
+            <div class="billfrom-city">
+              <div class="billfrom-city-column">
+                <label for="city" class="grey">City</label>
+                <input type="text" class="input">
+              </div>
+              <div class="billfrom-city-column">
+                <label for="postcode" class="grey">Post Code</label>
+                <input type="text" class="input">
+              </div>
+              <div class="billfrom-city-column">
+                <label for="country" class="grey">Country</label>
+                <input type="text" class="input">
+              </div>
+            </div>
+          </div>
+
+          <div class="billto">
+            <p class="purple">Bill To</p>
+
+            <div class="billto-name">
+              <label for="name" class="grey">Client's Name</label>
+              <input type="name" class="input" required>
+
+              <label for="email" class="grey">Client's Email</label>
+              <input type="email" class="input" required>
+
+              <label for="street" class="grey">Street Address</label>
+              <input type="text" class="input" required>
+            </div>
+
+            <div class="billto-city">
+              <div class="billto-city-column">
+                <label for="city" class="grey">City</label>
+                <input type="text" class="input" required>
+              </div>
+              <div class="billto-city-column">
+                <label for="postcode" class="grey">Post Code</label>
+                <input type="text" class="input" required>
+              </div>
+              <div class="billto-city-column">
+                <label for="country" class="grey">Country</label>
+                <input type="text" class="input" required>
+              </div>
+            </div>
+
+            <div class="invoice-date">
+              <div class="invoice-date-label">
+                <label for="date" class="grey">Invoice Date</label>
+                <input type="date" class="input" value="2017-06-01" required>
+              </div>
+              <div class="invoice-date-payment">
+                <label for="date" class="grey">Payment Terms</label>
+                <select name="date" class="input" id="date">
+                  <option value="1" class="input">Net 1 day</option>
+                  <option value="7" class="input">Net 7 days</option>
+                  <option value="14" class="input">Net 14 days</option>
+                  <option value="30" class="input">Net 30 days</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="billto-project">
+              <label for="project" class="grey">Project Description</label>
+              <input type="text" class="input" required>
+              <p class="grey list-name">Item List</p>
+            </div>
+          </div>
+
+          <div class="item-list">
+            <div class="item-list-name">
+              <label for="item" class="grey">Item Name</label>
+              <input type="text" class="input" required>
+              <input type="text" class="input" required>
+            </div>
+
+            <div class="item-list-name">
+              <label for="qty" class="grey">Qty.</label>
+              <input type="number" class="number input" required width="4rem">
+              <input type="number" class="number input" required>
+            </div>
+
+            <div class="item-list-name">
+              <label for="price" class="grey">Price</label>
+              <input type="number" class="price input" required>
+              <input type="number" class="price input" required>
+            </div>
+
+            <div class="item-list-name">
+              <label for="total" class="grey item-total">Total</label>
+              <p class="grey item-total">156.00</p>
+              <p class="grey item-total-second">200.00</p>
+            </div>
+
+            <div class="item-list-name">
+              <div class="item-total">&nbsp;</div>
+              <img class="item-total" src="/assets/icon-delete.svg" alt="Delete">
+              <img class="item-total item-total-second" src="/assets/icon-delete.svg" alt="Delete">
+            </div>
+          </div>
+
+          <div>
+            <button class="btn-2-light add-item input">+ Add New Item</button>
+          </div>
+
+        </div>
+        <div class="modal-edit-buttons">
+          <button class="btn-2-light" onclick="document.getElementById('edit').style.display='none'">Cancel</button>
+          <button class="btn-1">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
   </section>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
   <script src="/js/saveDraft.js"></script>
   <script src="/js/toggleDarkMode.js"></script>

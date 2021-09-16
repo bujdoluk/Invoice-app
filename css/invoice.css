@@ -11,6 +11,19 @@
     background: #f8f8fb;
 }
 
+@media only screen and (max-width: 768px) {
+    .main-view {  
+       overflow-y: visible;
+    }   
+}
+
+.body-view {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10rem;
+    margin: 0 auto;
+}
+
 /* Invoices */
 .invoices {
     display: flex;
@@ -23,13 +36,8 @@
 
 @media only screen and (max-width: 768px) {
     .invoices {
-        display: flex;
-        flex-direction: column;
-        width: 90vw;
-        height: 80vh;
-        margin: 0 auto;
-        font-size: 1.5rem;
-        padding: 8rem 0rem;
+        width: 100vw;
+        padding: 5rem 5rem;
     }    
 }
 
@@ -74,11 +82,23 @@
     z-index: 5;
 }
 
+.status-name {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
 .status-value {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .status-value {
+        margin-left: auto;
+    }
 }
 
  .status-buttons {
@@ -89,11 +109,23 @@
     gap: 2rem;
  }
 
+ @media only screen and (max-width: 768px) {
+    .status-buttons {
+       display: none;
+    }
+ }
+
  .status-value-update {
     background: rgb(255, 243, 230);
     padding: 1rem;
     color: rgb(255, 159, 57);
     border-radius: 0.4rem;
+ }
+
+ @media only screen and (max-width: 768px) {
+    .status-value-update {
+        margin-left: auto;
+     }
  }
 
  .status-value-update-paid {
@@ -114,13 +146,8 @@
     box-shadow: 0.2rem 0.2rem 0.2rem rgb(231, 231, 231);
     padding: 5rem;
     z-index: 5;
+    margin-bottom: 10rem;
  }
-
- @media only screen and (max-width: 768px) {
-    .details {
-        padding: 3rem; 
-     } 
-}
 
  .details-id {
     display: flex;
@@ -475,7 +502,24 @@ input[type=number]{
     width: 52rem;
 }
 
+.buttons-bottom {
+    display: none;
+}
 
+@media only screen and (max-width: 768px) {
+    .buttons-bottom {
+        display: block;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20rem;
+        padding: 3rem 5rem 3rem 5rem;
+        width: 100vw;
+        height: 15rem;
+        z-index: 5;
+        background: white;
+    }
+}
 
 
    

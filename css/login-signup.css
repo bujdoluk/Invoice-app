@@ -22,14 +22,26 @@ body {
   box-sizing: border-box;
 }
 
+#createAccount {
+    opacity: 1;
+}
+
+#login {
+    display: none;
+}
+
 .container {
-    width: 40rem;
-    max-width: 40rem;
-    margin: 1rem;
+    width: 50rem;
+    max-width: 50rem;
+    margin: 0 auto;
     padding: 2rem;
     box-shadow: 0 0 4rem rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
     background: #ffffff;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .container,
@@ -136,7 +148,7 @@ body {
     text-decoration: underline;
 }
 
-label {
+/* label {
     background-color: #9277ff;
     color: white;
     padding: 0.5rem;
@@ -149,7 +161,7 @@ label {
   label:hover {
       background: #7c5dfa;
   }
-  
+   */
   #file-chosen{
     margin-left: 0.3rem;
     font-family: sans-serif;
