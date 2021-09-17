@@ -24,7 +24,6 @@ function toggleDarkMode() {
     document.querySelector('.input').classList.toggle('dark-mode-2');
     document.querySelector('.status').classList.toggle('dark-mode-2');
     document.querySelector('.details').classList.toggle('dark-mode-2');
-    document.querySelector('.invoices-element').classList.toggle('dark-mode-2');
 
     // Dark Mode 3
 
@@ -43,7 +42,6 @@ function toggleDarkMode() {
     // Dark Mode 6
 
     document.querySelector('.back-paragraph').classList.toggle('dark-mode-6');
-    document.querySelector('.whitePlaceholder').classList.toggle('dark-mode-6');
 
     // Dark Mode 7
 

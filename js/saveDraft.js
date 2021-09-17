@@ -1,5 +1,9 @@
 'use strict';
 
+// window.addEventListener('DOMContentLoaded', (event) => {
+//     console.log('DOM fully loaded and parsed');
+// });
+
 let invoices = new Array();
 let invoice = new Object();
 
@@ -100,40 +104,67 @@ const invoice4 = {
     itemLists: [itemList1],
 };
 
-const invoicesArray = [invoice1, invoice2, invoice3, invoice4];
+const invoicesArr = [invoice1, invoice2, invoice3, invoice4];
 
 const browseBtn = document.querySelector('#browse');
 
-browseBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector('#createAccount').style.display = 'none';
-    document.querySelector('#body-view').style.display = 'none';
-    document.querySelector('.sidepanel').style.display = 'flex';
-    document.querySelector('#main-view ').style.display = 'flex';
-});
+document.querySelector('#createAccount').style.display = 'none';
+document.querySelector('#body-view').style.display = 'none';
+document.querySelector('#main-view ').style.display = 'flex';
 
-function renderInvoice() {
-    const invoicesArray = document.getElementById('invoices-array');
-    const div = document.createElement("div");
+const btnSaveAsDraft = document.querySelector('.btnSaveAsDraft');
 
-    div.innerHTML =
+btnSaveAsDraft.addEventListener('click', function () {
 
-        `<a class="invoices-link" href="/invoice.html">
-            <div class="invoices-element">
-                    <div>${generateID()}</div>
-                    <div class="grey">${invoice.invoiceDate}</div>
-                    <div class="grey">${invoice.clientName}</div>
-                    <div class="bold">120</div>
-                    <div class="right">
-                    <div class="status-value-udpate-draft"><span class="status-dot-draft">&#11044;</span> Draft</div>
-                    <div><img class="arrow-right" src="/assets/icon-arrow-right.svg" alt="Arrow right"></div>
-                    </div>
-            </div>
-        </a>`;
+    document.querySelector('#empty').style.display = 'none';
 
-    invoicesArray.append(div);
-    console.log(localStorage.setItem("invoice", div));
-}
+    const containerInvoicesArray = document.getElementById('invoices-array');
+
+    invoicesArr.forEach(function (inv, i) {
+
+        const html = `<a class="invoices-link" href="#">
+                            <div class="invoices-element">
+                                <div>${generateID()}</div>
+                                <div class="grey">${inv.InvoiceDate}</div>
+                                <div class="grey">${inv.clientName}</div>
+                                <div class="bold">${inv.itemLists[i]}</div>
+                                <div class="right">
+                                <div class="status-value-udpate-draft"><span class="status-dot-draft">&#11044;</span> Draft</div>
+                                <div><img class="arrow-right" src="/assets/icon-arrow-right.svg" alt="Arrow right"></div>
+                                </div>
+                            </div>
+                        </a>`;
+
+        containerInvoicesArray.insertAdjacentHTML('afterbegin', html);
+    })
+
+    document.querySelector('#invoices-array').style.display = 'block';
+
+    console.log(invoicesArr.push(invoicesArr));
+})
+
+// function renderInvoice() {
+//     const invoicesArray = document.getElementById('invoices-array');
+//     const div = document.createElement("div");
+
+//     div.innerHTML =
+
+//         `<a class="invoices-link" href="/invoice.html">
+//             <div class="invoices-element">
+//                     <div>${generateID()}</div>
+//                     <div class="grey">${invoice.invoiceDate}</div>
+//                     <div class="grey">${invoice.clientName}</div>
+//                     <div class="bold">120</div>
+//                     <div class="right">
+//                     <div class="status-value-udpate-draft"><span class="status-dot-draft">&#11044;</span> Draft</div>
+//                     <div><img class="arrow-right" src="/assets/icon-arrow-right.svg" alt="Arrow right"></div>
+//                     </div>
+//             </div>
+//         </a>`;
+
+//     invoicesArray.append(div);
+//     console.log(localStorage.setItem("invoice", div));
+// }
 
 function saveDraft() {
 
